@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web IP Camera | Professional Streaming Tool</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --bg-dark: #0f1113;
+            --bg-card: #1a1d21;
+            --accent-green: #00e676;
+            --accent-blue: #00b0ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- GLOBAL STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 17, 19, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid #2d3135;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent-green); }
+
+        /* --- HERO SECTION --- */
+        header {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, var(--bg-dark) 60%);
+        }
+
+        .app-icon-slot {
+            width: 120px;
+            height: 120px;
+            background: var(--bg-card);
+            border-radius: 28px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #334155;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            overflow: hidden;
+        }
+
+        h1 { font-size: 4rem; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-block;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary { background: var(--accent-green); color: #000; margin-right: 15px; }
+        .btn-secondary { background: #334155; color: #fff; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* --- FEATURES --- */
+        #features { padding: 100px 0; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .f-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #2d3135;
+            transition: var(--transition);
+        }
+
+        .f-card:hover { border-color: var(--accent-green); }
+        .f-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .f-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+        .f-card p { color: var(--text-muted); }
+
+        .res-tags { margin-top: 15px; display: flex; gap: 8px; }
+        .tag { background: #0f172a; padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; border: 1px solid #1e293b; }
+
+        /* --- GALLERY SECTION --- */
+        #gallery { padding: 100px 0; background: #0a0c0e; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .screen-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 10px;
+            border: 1px solid #2d3135;
+            transition: var(--transition);
+        }
+
+        .screen-card img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            aspect-ratio: 9 / 19;
+            object-fit: cover;
+            background: #222;
+        }
+
+        .screen-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            border-color: var(--accent-blue);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid #2d3135;
+            color: var(--text-muted);
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .btn { width: 100%; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Web IP Camera</div>
+            <ul class="nav-links">
+                <li><a href="#features" class="btn-secondary" style="padding: 8px 16px; border-radius: 8px;">Features</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="app-icon-slot">
+                ICON AREA
+            </div>
+            <h1>Web IP Camera</h1>
+            <p class="hero-subtitle">Transform your phone into a high-definition wireless security camera. Stream directly to any web browser on your local network.</p>
+            <div class="hero-actions">
+                <a href="com.web.webipcamera_v3.0.apk" class="btn btn-primary">Download APK</a>
+                <a href="#gallery" class="btn btn-secondary">View Interface</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Web IP Camera?</h2>
+            <div class="features-grid">
+                
+                <div class="f-card">
+                    <span class="f-icon">🎬</span>
+                    <h3>HD Streaming</h3>
+                    <p>Crystal clear video transmission with selectable quality to match your bandwidth.</p>
+                    <div class="res-tags">
+                        <span class="tag">720p</span>
+                        <span class="tag">480p</span>
+                        <span class="tag">360p</span>
+                    </div>
+                </div>
+
+                <div class="f-card">
+                    <span class="f-icon">🏃</span>
+                    <h3>Motion Detection</h3>
+                    <p>Smart sensors detect movement and trigger sound alerts to keep your space secure.</p>
+                </div>
+
+                <div class="f-card">
+                    <span class="f-icon">🌐</span>
+                    <h3>Instant Web Access</h3>
+                    <p>No extra software needed. Just enter the generated IP address in any browser to watch live.</p>
+                </div>
+
+                <div class="f-card">
+                    <span class="f-icon">🔒</span>
+                    <h3>Privacy First</h3>
+                    <p>Secure your stream with server passwords. Your data stays on your local network.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">App Screenshots</h2>
+            <div class="gallery-grid">
+                <div class="screen-card"><img src="screen_1.png" alt="Dashboard"></div>
+                <div class="screen-card"><img src="screen_2.png" alt="Settings"></div>
+                <div class="screen-card"><img src="screen_3.png" alt="Live Stream"></div>
+                <div class="screen-card"><img src="screen_4.png" alt="Resolution Selection"></div>
+                <div class="screen-card"><img src="screen_5.png" alt="Security Mode"></div>
+                <div class="screen-card"><img src="screen_6.png" alt="Language Settings"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web IP Camera. Developed for modern monitoring.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Designed for Android & Web access.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Basit kaydırma efekti ve konsol bildirimi
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Web IP Camera Landing Page is live!");
+            
+            // Linklere tıklandığında yumuşak geçiş (Ekstra destek)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
