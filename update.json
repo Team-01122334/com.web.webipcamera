@@ -1,10 +1,9 @@
 {
-  "version": "3.3.6-beta",
-  "version_code": 335,
-  "download_url": "https://example.com/updates/app-v1.2.3.apk",
+  "version": "3.6.0-beta",
+  "version_code": 360,
+  "download_url": "https://drive.usercontent.google.com/download?id=1u48r8wKb9o39xW3HMRShdCs36AM6dLLK&export=download&confirm=t&uuid=8229bf17-a2bd-4cc1-9460-f3bbf2e8311f",
   "changelog": [
-    "Performans iyileştirmeleri yapıldı.",
-    "Zoom' Sone çekince çökme sorunu çözüldü."
+    "3.6.0-beta"
   ]
 }
 
